@@ -43,9 +43,9 @@ import com.cybozu.labs.langdetect.util.NGram;
  * 
  * <pre>
  * import java.util.ArrayList;
- * import com.cybozu.labs.langdetect.Detector;
- * import com.cybozu.labs.langdetect.DetectorFactory;
- * import com.cybozu.labs.langdetect.Language;
+ * import com.cybozu.labs.com.cybozu.labs.langdetect.langdetect.Detector;
+ * import com.cybozu.labs.com.cybozu.labs.langdetect.langdetect.DetectorFactory;
+ * import com.cybozu.labs.com.cybozu.labs.langdetect.langdetect.Language;
  * 
  * class LangDetectSample {
  *     public void init(String profileDirectory) throws LangDetectException {

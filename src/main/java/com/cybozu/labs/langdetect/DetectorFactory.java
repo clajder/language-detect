@@ -66,7 +66,7 @@ public class DetectorFactory {
 
     public static void loadProfile() throws LangDetectException, IOException {
 
-        final String resourceDir = "profiles/";
+        final String resourceDir = "/profiles";
 
         List<String> files = null;
         try (InputStream is = DetectorFactory.class.getResourceAsStream(resourceDir)) {
@@ -78,7 +78,7 @@ public class DetectorFactory {
 
         int index = 0;
         for (String f : files) {
-            try (InputStream is = DetectorFactory.class.getResourceAsStream(resourceDir + f)) {
+            try (InputStream is = DetectorFactory.class.getResourceAsStream(resourceDir + "/" + f)) {
                 LangProfile profile = JSON.decode(is, LangProfile.class);
                 addProfile(profile, index, files.size());
                 ++index;
