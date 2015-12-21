@@ -36,7 +36,48 @@ Gradle port for language detection library implemented in plain Java (aliases: l
   * Java 1.7 or later
   * JSONIC (bundled) < http://sourceforge.jp/projects/jsonic/devel/ , Apache License 2.0 >
 
-# Quick start
+Add the repositories:
+
+```gradle
+repositories {
+    mavenCentral()
+    maven { url  "http://dl.bintray.com/clajder/maven" }
+}
+```
+
+Dependency:
+
+```gradle
+dependencies {
+  compile 'com.cybozu.labs:language-detect:INSERT_LATEST_VERSION_HERE'
+}
+```
+
+How to use the latest build with Maven:
+
+```xml
+<repository>
+    <snapshots>
+        <enabled>false</enabled>
+    </snapshots>
+    <id>bintray-clajder-maven</id>
+    <name>bintray</name>
+    <url>http://dl.bintray.com/clajder/maven</url>
+</repository>
+```
+
+Dependency:
+
+```xml
+<dependency>
+    <groupId>com.cybozu.labs</groupId>
+    <artifactId>language-detect</artifactId>
+    <version>INSERT_LATEST_VERSION_HERE</version>
+</dependency>
+```
+
+
+# Usage
 
 ```
 import java.util.ArrayList;
