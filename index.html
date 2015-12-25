@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <title>Language-detect by clajder</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Language-detect</h1>
+        <h2>Gradle port for language detection library implemented in plain Java (aliases: language identification, language guessing)</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/clajder/language-detect/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/clajder/language-detect/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/clajder/language-detect" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a id="language-detect" class="anchor" href="#language-detect" aria-hidden="true"><span class="octicon octicon-link"></span></a>language-detect</h1>
+
+<p><a href="https://travis-ci.org/clajder/language-detect"><img src="https://travis-ci.org/clajder/language-detect.svg?branch=master" alt="Build Status"></a>   <a href="https://bintray.com/clajder/maven/language-detect/_latestVersion"> <img src="https://api.bintray.com/packages/clajder/maven/language-detect/images/download.svg" alt="Download"> </a></p>
+
+<p>Gradle port for language detection library implemented in plain Java (aliases: language identification, language guessing)</p>
+
+<h1>
+<a id="abstract" class="anchor" href="#abstract" aria-hidden="true"><span class="octicon octicon-link"></span></a>Abstract</h1>
+
+<ul>
+<li>Generate language profiles from Wikipedia abstract xml</li>
+<li>Detect language of a text using naive Bayesian filter</li>
+<li>99% over precision for 53 languages</li>
+</ul>
+
+<h1>
+<a id="news" class="anchor" href="#news" aria-hidden="true"><span class="octicon octicon-link"></span></a>News</h1>
+
+<ul>
+<li>21/12/2015
+
+<ul>
+<li>Moved to gradle build system</li>
+<li>Fixes issues with some tests</li>
+<li>Add support for JDK 7</li>
+<li>Update DetectorFactory to support classpath lookup</li>
+<li>Add upload to <code>Bintray</code>
+</li>
+</ul>
+</li>
+<li>03/03/2014
+
+<ul>
+<li>Distribute a new package with short-text profiles (47 languages)
+
+<ul>
+<li>Build latest codes</li>
+<li>Remove Apache Nutch's plugin (for API deprecation)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>01/12/2012
+
+<ul>
+<li>Migrate the repository of language-detection from subversion into git
+
+<ul>
+<li>for Maven support
+....</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<h1>
+<a id="requires" class="anchor" href="#requires" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requires</h1>
+
+<ul>
+<li>Java 1.7 or later</li>
+<li>JSONIC (bundled) &lt; <a href="http://sourceforge.jp/projects/jsonic/devel/">http://sourceforge.jp/projects/jsonic/devel/</a> , Apache License 2.0 &gt;</li>
+</ul>
+
+<p>Add the repositories:</p>
+
+<div class="highlight highlight-source-groovy-gradle"><pre><span class="pl-en">repositories</span> {
+    mavenCentral()
+    maven { url  <span class="pl-s"><span class="pl-pds">"</span>http://dl.bintray.com/clajder/maven<span class="pl-pds">"</span></span> }
+}</pre></div>
+
+<p>Dependency:</p>
+
+<div class="highlight highlight-source-groovy-gradle"><pre><span class="pl-en">dependencies</span> {
+  compile <span class="pl-s"><span class="pl-pds">'</span>com.cybozu.labs:language-detect:INSERT_LATEST_VERSION_HERE<span class="pl-pds">'</span></span>
+}</pre></div>
+
+<p>How to use the latest build with Maven:</p>
+
+<div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">repository</span>&gt;
+    &lt;<span class="pl-ent">snapshots</span>&gt;
+        &lt;<span class="pl-ent">enabled</span>&gt;false&lt;/<span class="pl-ent">enabled</span>&gt;
+    &lt;/<span class="pl-ent">snapshots</span>&gt;
+    &lt;<span class="pl-ent">id</span>&gt;bintray-clajder-maven&lt;/<span class="pl-ent">id</span>&gt;
+    &lt;<span class="pl-ent">name</span>&gt;bintray&lt;/<span class="pl-ent">name</span>&gt;
+    &lt;<span class="pl-ent">url</span>&gt;http://dl.bintray.com/clajder/maven&lt;/<span class="pl-ent">url</span>&gt;
+&lt;/<span class="pl-ent">repository</span>&gt;</pre></div>
+
+<p>Dependency:</p>
+
+<div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">dependency</span>&gt;
+    &lt;<span class="pl-ent">groupId</span>&gt;com.cybozu.labs&lt;/<span class="pl-ent">groupId</span>&gt;
+    &lt;<span class="pl-ent">artifactId</span>&gt;language-detect&lt;/<span class="pl-ent">artifactId</span>&gt;
+    &lt;<span class="pl-ent">version</span>&gt;INSERT_LATEST_VERSION_HERE&lt;/<span class="pl-ent">version</span>&gt;
+&lt;/<span class="pl-ent">dependency</span>&gt;</pre></div>
+
+<h1>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h1>
+
+<pre><code>import java.util.ArrayList;
+import com.cybozu.labs.langdetect.Detector;
+import com.cybozu.labs.langdetect.DetectorFactory;
+import com.cybozu.labs.langdetect.Language;
+
+class LangDetectSample {
+    public void init(String profileDirectory) throws LangDetectException {
+        DetectorFactory.loadProfile(profileDirectory);
+    }
+    public String detect(String text) throws LangDetectException {
+        Detector detector = DetectorFactory.create();
+        detector.append(text);
+        return detector.detect();
+    }
+    public ArrayList&lt;Language&gt; detectLangs(String text) throws LangDetectException {
+        Detector detector = DetectorFactory.create();
+        detector.append(text);
+        return detector.getProbabilities();
+    }
+}
+</code></pre>
+      </section>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-71724065-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
