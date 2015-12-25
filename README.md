@@ -10,10 +10,6 @@ Gradle port for language detection library implemented in plain Java (aliases: l
   * Detect language of a text using naive Bayesian filter
   * 99% over precision for 53 languages
 
-# Downloads
-
-  * Available packages are on [Downloads](Downloads.md) .
-
 # News
 
   * 21/12/2015
