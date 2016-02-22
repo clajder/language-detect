@@ -1,6 +1,6 @@
 # language-detect
 
-[![Build Status](https://travis-ci.org/oembedler/language-detect.svg?branch=master)](https://travis-ci.org/oembedler/language-detect)   [ ![Download](https://api.bintray.com/packages/clajder/maven/language-detect/images/download.svg) ](https://bintray.com/clajder/maven/language-detect/_latestVersion)
+[![Build Status](https://travis-ci.org/oembedler/language-detect.svg?branch=master)](https://travis-ci.org/oembedler/language-detect)   [ ![Download](https://api.bintray.com/packages/oembedler/maven/language-detect/images/download.svg) ](https://bintray.com/oembedler/maven/language-detect/_latestVersion)
 
 Gradle port for language detection library implemented in plain Java (aliases: language identification, language guessing)
 
@@ -37,7 +37,7 @@ Add the repositories:
 ```gradle
 repositories {
     mavenCentral()
-    maven { url  "http://dl.bintray.com/clajder/maven" }
+    maven { url  "http://dl.bintray.com/oembedler/maven" }
 }
 ```
 
@@ -56,9 +56,9 @@ How to use the latest build with Maven:
     <snapshots>
         <enabled>false</enabled>
     </snapshots>
-    <id>bintray-clajder-maven</id>
+    <id>bintray-oembedler-maven</id>
     <name>bintray</name>
-    <url>http://dl.bintray.com/clajder/maven</url>
+    <url>http://dl.bintray.com/oembedler/maven</url>
 </repository>
 ```
 
